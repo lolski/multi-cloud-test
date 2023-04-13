@@ -14,15 +14,6 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12.23"
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
-
 locals {
   vpc_name      = "${var.anthos_prefix}-anthos-vpc"
   az_count      = length(var.subnet_availability_zones)

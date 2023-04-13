@@ -14,15 +14,6 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12.23"
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
-
 data "aws_caller_identity" "current" {}
 #Create KMS
 # https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/create-aws-kms-key

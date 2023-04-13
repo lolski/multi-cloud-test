@@ -10,3 +10,18 @@ module "aws" {
     node_pool_instance_type = var.node_pool_instance_type
     control_plane_instance_type = var.control_plane_instance_type
 }
+
+module "gcp" {
+    source = "./modules/gcp"
+
+    project = var.project
+    cluster_name = var.cluster_name
+    region = var.region
+    zone = var.zone
+    min_nodes = var.min_nodes
+    max_nodes = var.max_nodes
+    machine_type = var.machine_type
+    credentials_file = var.credentials_file
+    gcp_service_account_name = var.gcp_service_account_name
+    log_retention_days = var.log_retention_days
+}
