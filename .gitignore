@@ -1,0 +1,6 @@
+.idea/
+multi-cloud-v2.iml
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+credentials/

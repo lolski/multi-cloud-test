@@ -1,0 +1,21 @@
+export CLUSTER_NAME=ganesh-ng
+export PROJECT_ID=vaticle-typedb-cloud-test
+export GCP_LOCATION=europe-west2
+export AWS_REGION=eu-west-2
+export VPC_ID=vpc-037f2a16beb0d34ec
+export SUBNET_IDS=subnet-023ef72031b5ccd7e,subnet-05af93faa07efb905,subnet-02acb240457d14b95
+export CLUSTER_VERSION=1.25.5-gke.2000
+export CONFIG_ENCRYPTION_KMS_KEY_ARN=arn:aws:kms:eu-west-2:098921236275:key/1cbf5753-69e6-4a4f-a31f-fc84a7b0b35e
+export DATABASE_ENCRYPTION_KMS_KEY_ARN=arn:aws:kms:eu-west-2:098921236275:key/1cbf5753-69e6-4a4f-a31f-fc84a7b0b35e
+export CP_IAM_ROLE_ARN=arn:aws:iam::098921236275:role/ganesh-ng-anthos-api-role
+export CP_IAM_INSTANCE_PROFILE=ganesh-ng-anthos-cp-instance-profile
+export SERVICE_ADDRESS_CIDR_BLOCKS=10.1.0.0/16
+export NODE_POOL_IAM_INSTANCE_PROFILE=ganesh-ng-anthos-np-instance-profile
+export NODE_POOL_INSTANCE_TYPE=t3.medium
+export NODE_POOL_CONFIG_ENCRYPTION_KEY=arn:aws:kms:eu-west-2:098921236275:key/96480032-48b6-4a0e-86e6-220191ea087e
+export NODE_POOL_ROOT_ENCRYPTION_KEY=arn:aws:kms:eu-west-2:098921236275:key/b18afd25-7355-49db-bdb6-643739dec06a
+#export NODE_POOL_SUBNET=
+#pod_address_cidr_blocks="10.2.0.0/16"
+#service_address_cidr_blocks="10.1.0.0/16"
+#SSH_KEY_PAIR_NAME=
+
