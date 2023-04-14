@@ -14,57 +14,48 @@
  * limitations under the License.
  */
 
-variable "gcp_project_id" {
-  description = "Enter the project id of the gcp project where the cluster will be registered."
-  type        = string
+variable "fleet-project-id" {
+  type = string
 }
 
-variable "name_prefix" {
-  description = "Prefix to apply to all artifacts created."
-  type        = string
+variable "namespace" {
+  type = string
 }
 
 # This step sets up the default RBAC policy in your cluster for a Google
 # user so you can login after cluster creation
-variable "admin_users" {
-  description = "User to get default Admin RBAC"
-  type        = list(string)
+variable "admins" {
+  type = list(string)
 }
 
-variable "cluster_version" {
-  description = "GKE version to install"
-  type        = string
+variable "cluster-version" {
+  type = string
 }
 
-variable "aws_region" {
-  description = "AWS region to deploy to"
-  type        = string
+variable "region" {
+  type = string
 }
 
 #You will need 3 AZs, one for each control plane node
-variable "subnet_availability_zones" {
-  description = "Availability zones to create subnets in, np will be created in the first"
-  type        = list(string)
+variable "subnet-az" {
+  type = list(string)
 }
 
 # Use the following command to identify the correct GCP location for a given AWS region
 #gcloud container aws get-server-config --location [gcp-region]
 
 variable "gcp_location" {
-  description = "GCP location to deploy to"
-  type        = string
+  type = string
 }
 
 
 variable "vpc_cidr_block" {
-  description = "CIDR block to use for VPC"
-  type        = string
+  type = string
   default     = "10.0.0.0/16"
 }
 
 variable "cp_private_subnet_cidr_blocks" {
-  description = "CIDR blocks to use for control plane private subnets"
-  type        = list(string)
+  type = list(string)
   default = [
     "10.0.1.0/24",
     "10.0.2.0/24",
@@ -73,8 +64,7 @@ variable "cp_private_subnet_cidr_blocks" {
 }
 
 variable "np_private_subnet_cidr_blocks" {
-  description = "CIDR block to use for node pool private subnets"
-  type        = list(string)
+  type = list(string)
   default = [
     "10.0.4.0/24"
   ]
@@ -84,8 +74,7 @@ variable "np_private_subnet_cidr_blocks" {
 #https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/create-aws-vpc#create-sample-vpc
 
 variable "public_subnet_cidr_block" {
-  description = "CIDR blocks to use for public subnets"
-  type        = list(string)
+  type = list(string)
   default = [
     "10.0.101.0/24",
     "10.0.102.0/24",
@@ -95,23 +84,19 @@ variable "public_subnet_cidr_block" {
 
 
 variable "pod_address_cidr_blocks" {
-  description = "CIDR Block to use for pod subnet"
-  type        = string
+  type = string
   default     = "10.2.0.0/16"
 }
 
 variable "service_address_cidr_blocks" {
-  description = "CIDR Block to use for service subnet"
-  type        = string
+  type = string
   default     = "10.1.0.0/16"
 }
 
 variable "node_pool_instance_type" {
-  description = "AWS Node instance type"
-  type        = string
+  type = string
 }
 
 variable "control_plane_instance_type" {
-  description = "AWS Node instance type"
-  type        = string
+  type = string
 }
