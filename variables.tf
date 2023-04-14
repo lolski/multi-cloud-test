@@ -34,54 +34,38 @@ variable "deployment-cluster-aws-node-pool-inst-type" {
   type = string
 }
 
-variable "project" {
+variable "deployment-cluster-gcp-project-id" {
   type = string
 }
 
-variable "cluster_name" {
+variable "deployment-cluster-gcp-region" {
   type = string
 }
 
-variable "zone" {
+variable "deployment-cluster-gcp-az" {
   type = string
 }
 
-variable "min_nodes" {
+variable "deployment-cluster-gcp-min-nodes" {
   type = number
 }
 
-variable "max_nodes" {
+variable "deployment-cluster-gcp-max-nodes" {
   type = number
 }
 
-variable "machine_type" {
+variable "deployment-cluster-gcp-instance-type" {
   type = string
 }
 
-variable "auto_repair" {
-  type = bool
-}
-
-variable "auto_upgrade" {
-  type = bool
-}
-
-variable "gcp_service_account_name" {
+variable "deployment-cluster-gcp-svc-acc-name" {
   type = string
 }
 
-variable "log_retention_days" {
-  type = number
-}
-
-variable "region" {
+variable "deployment-cluster-gcp-credentials" {
   type = string
 }
 
-variable "credentials_file" {
-  type = string
-}
-
-variable "ssh_private_key_file" {
+variable "deployment-cluster-gcp-ssh-private-key" {
   type = string
 }

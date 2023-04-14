@@ -1,7 +1,7 @@
 resource "google_container_cluster" "primary" {
-  name     = var.cluster_name
+  name     = var.namespace
   location = var.region
-  node_locations = [var.zone]
+  node_locations = [var.az]
 
   # Deletes initial node pool
   # Replaces with separately managed node pool
@@ -59,7 +59,7 @@ resource "google_container_cluster" "primary" {
 #}
 
 resource "google_gke_hub_membership" "primary-fleet-membership" {
-  project = var.project
+  project = var.project-id
   membership_id = google_container_cluster.primary.name
   endpoint {
     gke_cluster {

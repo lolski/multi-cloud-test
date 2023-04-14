@@ -1,8 +1,8 @@
-variable "project" {
+variable "namespace" {
   type = string
 }
 
-variable "cluster_name" {
+variable "project-id" {
   type = string
 }
 
@@ -10,30 +10,26 @@ variable "region" {
   type = string
 }
 
-variable "zone" {
+variable "az" {
   type = string
 }
 
-variable "min_nodes" {
+variable "min-nodes" {
   type = number
 }
 
-variable "max_nodes" {
+variable "max-nodes" {
   type = number
 }
 
-variable "machine_type" {
+variable "instance-type" {
   type = string
 }
 
-variable "credentials_file" {
+variable "credentials" {
   type = string
 }
 
-variable "gcp_service_account_name" {
+variable "sa-name" {
   type = string
-}
-
-variable "log_retention_days" {
-  type = number
 }

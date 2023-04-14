@@ -1,17 +1,17 @@
 resource "google_container_node_pool" "node_pool" {
   name       = "${google_container_cluster.primary.name}-node-pool"
   location   = var.region
-  node_locations = [var.zone]
+  node_locations = [var.az]
   cluster    = google_container_cluster.primary.name
-  node_count = var.min_nodes
+  node_count = var.min-nodes
   autoscaling {
-    min_node_count = var.min_nodes
-    max_node_count = var.max_nodes
+    min_node_count = var.min-nodes
+    max_node_count = var.max-nodes
   }
 
   node_config {
-    machine_type = var.machine_type
-    service_account = "${var.gcp_service_account_name}@${var.project}.iam.gserviceaccount.com"
+    machine_type = var.instance-type
+    service_account = "${var.sa-name}@${var.project-id}.iam.gserviceaccount.com"
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
@@ -19,7 +19,7 @@ resource "google_container_node_pool" "node_pool" {
     ]
 
     labels = {
-      env = var.project
+      env = var.project-id
     }
 
     tags         = ["gke-node"]

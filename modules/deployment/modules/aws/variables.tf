@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-variable "fleet-project-id" {
+variable "namespace" {
   type = string
 }
 
-variable "namespace" {
+variable "fleet-project-id" {
   type = string
 }
 
@@ -44,7 +44,7 @@ variable "subnet-az" {
 # Use the following command to identify the correct GCP location for a given AWS region
 #gcloud container aws get-server-config --location [gcp-region]
 
-variable "gcp_location" {
+variable "fleet-region" {
   type = string
 }
 
