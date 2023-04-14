@@ -3,18 +3,18 @@ namespace = "ganesh"
 // Fleet
 fleet-project-id = "vaticle-typedb-cloud-test"
 fleet-region = "europe-west2"
-fleet-gke-version = "1.25.5-gke.2000"
+fleet-cluster-version = "1.25.5-gke.2000"
 
 /*
  * typedb-cloud-deployment Kubernetes cluster
  */
 
 // AWS
-aws-region = "eu-west-2"
-aws-subnet-az = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
-aws-control-plane-instance-type = "t3.medium"
-aws-node-pool-instance-type = "t3.medium"
-aws-admin-users = ["ganesh@vaticle.com"]
+deployment-cluster-aws-region = "eu-west-2"
+deployment-cluster-aws-subnet-az = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+deployment-cluster-aws-control-plane-inst-type = "t3.medium"
+deployment-cluster-aws-node-pool-inst-type = "t3.medium"
+deployment-cluster-aws-admins = ["ganesh@vaticle.com"]
 
 // GCP
 project = "vaticle-typedb-cloud-test" // var.gcp_project_id

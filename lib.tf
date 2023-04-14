@@ -32,7 +32,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws-region
+  region = var.deployment-cluster-aws-region
 }
 provider "google" {
   project = var.fleet-project-id

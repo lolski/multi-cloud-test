@@ -1,14 +1,14 @@
 module "aws" {
     source = "./modules/aws"
-    name_prefix = var.name_prefix
-    cluster_version = var.cluster_version
-    gcp_project_id = var.gcp_project_id
-    gcp_location = var.gcp_location
-    admin_users = var.admin_users
-    aws_region = var.aws_region
-    subnet_availability_zones = var.subnet_availability_zones
-    node_pool_instance_type = var.node_pool_instance_type
-    control_plane_instance_type = var.control_plane_instance_type
+    name_prefix = var.namespace
+    cluster_version = var.fleet-cluster-version
+    gcp_project_id = var.fleet-project-id
+    gcp_location = var.fleet-region
+    admin_users = var.deployment-cluster-aws-admins
+    aws_region = var.deployment-cluster-aws-region
+    subnet_availability_zones = var.deployment-cluster-aws-subnet-az
+    node_pool_instance_type = var.deployment-cluster-aws-node-pool-inst-type
+    control_plane_instance_type = var.deployment-cluster-aws-control-plane-inst-type
 }
 
 module "gcp" {
