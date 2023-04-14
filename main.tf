@@ -1,16 +1,16 @@
 module "deployment" {
   source = "./modules/deployment"
 
-  name_prefix = var.name_prefix
-  cluster_version = var.cluster_version
-  gcp_project_id = var.gcp_project_id
-  gcp_location = var.gcp_location
+  name_prefix = var.namespace
+  cluster_version = var.fleet-gke-version
+  gcp_project_id = var.fleet-project-id
+  gcp_location = var.fleet-region
 
-  admin_users = var.admin_users
-  aws_region = var.aws_region
-  subnet_availability_zones = var.subnet_availability_zones
-  node_pool_instance_type = var.node_pool_instance_type
-  control_plane_instance_type = var.control_plane_instance_type
+  admin_users = var.aws-admin-users
+  aws_region = var.aws-region
+  subnet_availability_zones = var.aws-subnet-az
+  node_pool_instance_type = var.aws-node-pool-instance-type
+  control_plane_instance_type = var.aws-control-plane-instance-type
 
   auto_repair = var.auto_repair
   auto_upgrade = var.auto_upgrade

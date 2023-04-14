@@ -32,8 +32,8 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws_region
+  region = var.aws-region
 }
 provider "google" {
-  project = var.gcp_project_id
+  project = var.fleet-project-id
 }
