@@ -1,8 +1,8 @@
-variable "namespace" {
+variable "resource-prefix" {
   type = string
 }
 
-variable "fleet-project-id" {
+variable "project-id" {
   type = string
 }
 
@@ -10,7 +10,7 @@ variable "fleet-region" {
   type = string
 }
 
-variable "fleet-cluster-version" {
+variable "cluster-version" {
   type = string
 }
 

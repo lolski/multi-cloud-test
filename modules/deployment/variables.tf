@@ -1,12 +1,8 @@
-variable "namespace" {
+variable "project-id" {
   type = string
 }
 
-variable "fleet-cluster-version" {
-  type = string
-}
-
-variable "fleet-project-id" {
+variable "resource-prefix" {
   type = string
 }
 
@@ -14,58 +10,58 @@ variable "fleet-region" {
   type = string
 }
 
-variable "deployment-cluster-aws-admins" {
+variable "cluster-version" {
+  type = string
+}
+
+variable "aws-admins" {
   type = list(string)
 }
 
-variable "deployment-cluster-aws-region" {
+variable "aws-region" {
   type = string
 }
 
-variable "deployment-cluster-aws-subnet-az" {
+variable "aws-subnet-az" {
   type = list(string)
 }
 
-variable "deployment-cluster-aws-node-pool-inst-type" {
+variable "aws-node-pool-instance-type" {
   type = string
 }
 
-variable "deployment-cluster-aws-control-plane-inst-type" {
+variable "aws-control-plane-instance-type" {
   type = string
 }
 
-variable "deployment-cluster-gcp-project-id" {
+variable "gcp-az" {
   type = string
 }
 
-variable "deployment-cluster-gcp-az" {
-  type = string
-}
-
-variable "deployment-cluster-gcp-min-nodes" {
+variable "gcp-min-nodes" {
   type = number
 }
 
-variable "deployment-cluster-gcp-max-nodes" {
+variable "gcp-max-nodes" {
   type = number
 }
 
-variable "deployment-cluster-gcp-instance-type" {
+variable "gcp-instance-type" {
   type = string
 }
 
-variable "deployment-cluster-gcp-sa-name" {
+variable "gcp-service-account-name" {
   type = string
 }
 
-variable "deployment-cluster-gcp-region" {
+variable "gcp-region" {
   type = string
 }
 
-variable "deployment-cluster-gcp-credentials" {
+variable "gcp-credentials" {
   type = string
 }
 
-variable "deployment-cluster-gcp-ssh-private-key" {
+variable "gcp-ssh-private-key" {
   type = string
 }

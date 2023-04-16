@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-variable "namespace" {
+variable "resource-prefix" {
   type = string
 }
 

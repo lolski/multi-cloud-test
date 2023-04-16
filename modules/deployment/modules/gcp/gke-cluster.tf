@@ -1,8 +1,10 @@
 resource "google_container_cluster" "primary" {
-  name     = var.namespace
+#  name     = "${var.resource-prefix}-typedb-cloud-deployment-gcp"
+  name     = var.resource-prefix
   location = var.region
   node_locations = [var.az]
 
+#  node_version = var.cluster-version
   # Deletes initial node pool
   # Replaces with separately managed node pool
   remove_default_node_pool = true

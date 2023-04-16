@@ -1,8 +1,12 @@
-variable "namespace" {
+variable "resource-prefix" {
   type = string
 }
 
 variable "project-id" {
+  type = string
+}
+
+variable "cluster-version" {
   type = string
 }
 

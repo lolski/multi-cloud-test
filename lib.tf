@@ -35,5 +35,5 @@ provider "aws" {
   region = var.deployment-cluster-aws-region
 }
 provider "google" {
-  project = var.fleet-project-id
+  project = var.project-id
 }

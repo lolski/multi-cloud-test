@@ -1,9 +1,9 @@
-namespace = "ganesh"
+resource-prefix = "ganesh"
 
 // Fleet
-fleet-project-id = "vaticle-typedb-cloud-test"
+project-id = "vaticle-typedb-cloud-test"
 fleet-region = "europe-west2"
-fleet-cluster-version = "1.25.5-gke.2000"
+cluster-version = "1.25.5-gke.2000"
 
 /*
  * typedb-cloud-deployment Kubernetes cluster

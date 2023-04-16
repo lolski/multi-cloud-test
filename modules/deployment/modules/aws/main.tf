@@ -16,7 +16,7 @@
 
 
 locals {
-  name_prefix = var.namespace
+  name_prefix = var.resource-prefix
 }
 
 module "kms" {
