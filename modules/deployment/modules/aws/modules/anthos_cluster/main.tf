@@ -31,7 +31,7 @@ resource "google_container_aws_cluster" "this" {
   aws_region  = var.aws_region
   description = "Test AWS cluster created with Terraform"
   location    = var.location
-  name        = "${var.anthos_prefix}-typedb-cloud-deployment-aws"
+  name        = "${var.anthos_prefix}-deployment-aws"
   authorization {
     dynamic "admin_users" {
       for_each = var.admin_users

@@ -1,5 +1,5 @@
 resource "google_container_cluster" "primary" {
-  name     = "${var.resource-prefix}-typedb-cloud-deployment-gcp"
+  name     = "${var.resource-prefix}-deployment-gcp"
   location = var.region
   node_locations = [var.az]
 
