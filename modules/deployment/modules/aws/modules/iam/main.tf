@@ -35,7 +35,7 @@ data "aws_iam_policy_document" "api_assume_role_policy_document" {
   }
 }
 resource "aws_iam_role" "api_role" {
-  name = "${var.anthos_prefix}-typedb-cloud-deployment-aws-anthos-api-role"
+  name = "${var.anthos_prefix}-anthos-api-role"
 
   description        = "IAM role for OnePlatform service backend"
   assume_role_policy = data.aws_iam_policy_document.api_assume_role_policy_document.json
