@@ -1,10 +1,8 @@
 resource "google_container_cluster" "primary" {
-#  name     = "${var.resource-prefix}-typedb-cloud-deployment-gcp"
-  name     = var.resource-prefix
+  name     = "${var.resource-prefix}-typedb-cloud-deployment-gcp"
   location = var.region
   node_locations = [var.az]
 
-#  node_version = var.cluster-version
   # Deletes initial node pool
   # Replaces with separately managed node pool
   remove_default_node_pool = true
@@ -59,13 +57,3 @@ resource "google_container_cluster" "primary" {
 #  location = google_container_cluster.primary.location
 #  use_private_endpoint = false
 #}
-
-resource "google_gke_hub_membership" "primary-fleet-membership" {
-  project = var.project-id
-  membership_id = google_container_cluster.primary.name
-  endpoint {
-    gke_cluster {
-      resource_link = "//container.googleapis.com/${google_container_cluster.primary.id}"
-    }
-  }
-}

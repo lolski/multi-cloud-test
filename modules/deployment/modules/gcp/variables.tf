@@ -34,6 +34,6 @@ variable "credentials" {
   type = string
 }
 
-variable "sa-name" {
+variable "service-account-name" {
   type = string
 }

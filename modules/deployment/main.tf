@@ -7,8 +7,8 @@ module "aws" {
     fleet-region = var.fleet-region
     region = var.aws-region
     subnet-az = var.aws-subnet-az
-    node_pool_instance_type = var.aws-node-pool-instance-type
     control_plane_instance_type = var.aws-control-plane-instance-type
+    node_pool_instance_type = var.aws-node-pool-instance-type
     admins = var.aws-admins
 }
 
@@ -23,5 +23,5 @@ module "gcp" {
     min-nodes = var.gcp-min-nodes
     max-nodes = var.gcp-max-nodes
     credentials = var.gcp-credentials
-    sa-name = var.gcp-service-account-name
+    service-account-name = var.gcp-service-account-name
 }
