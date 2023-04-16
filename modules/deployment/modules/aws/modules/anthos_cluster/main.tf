@@ -85,8 +85,9 @@ resource "google_container_aws_cluster" "this" {
     delete = "45m"
   }
 }
+
 resource "google_container_aws_node_pool" "this" {
-  name      = "${var.anthos_prefix}-nodepool"
+  name      = "${google_container_aws_cluster.this.name}-nodepool"
   cluster   = google_container_aws_cluster.this.id
   subnet_id = var.node_pool_subnet_id
   version   = var.cluster_version
