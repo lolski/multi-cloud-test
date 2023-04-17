@@ -1,3 +1,17 @@
+module "application" {
+  source = "./modules/application"
+  project-id = var.project-id
+  resource-prefix = var.resource-prefix
+  cluster-version = var.cluster-version
+  region = var.application-cluster-region
+  az = var.application-cluster-az
+  instance-type = var.application-cluster-instance-type
+  min-nodes = var.application-cluster-min-nodes
+  max-nodes = var.application-cluster-max-nodes
+  credentials = var.application-cluster-credentials
+  service-account-name = var.application-cluster-svc-acc-name
+}
+
 module "deployment" {
   source = "./modules/deployment"
 
