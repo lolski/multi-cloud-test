@@ -1,7 +1,7 @@
 module "application" {
   source = "./modules/application"
   project-id = var.project-id
-  resource-prefix = var.resource-prefix
+  resource-prefix = "${var.resource-prefix}-application"
   cluster-version = var.cluster-version
   region = var.application-cluster-region
   az = var.application-cluster-az
@@ -16,7 +16,7 @@ module "deployment" {
   source = "./modules/deployment"
 
   project-id = var.project-id
-  resource-prefix = var.resource-prefix
+  resource-prefix = "${var.resource-prefix}-deployment"
   cluster-version = var.cluster-version
 
   fleet-region = var.fleet-region

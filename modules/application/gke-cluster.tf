@@ -1,5 +1,5 @@
 resource "google_container_cluster" "primary" {
-  name     = "${var.resource-prefix}-application"
+  name     = "${var.resource-prefix}-cluster"
   location = var.region
   node_locations = [var.az]
 
