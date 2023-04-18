@@ -1,7 +1,8 @@
-module "aws" {
+module "aws-eu-west-2" {
     source = "./modules/aws"
+
     // resource-group = var.aws.resource-group
-    resource-prefix = var.resource-prefix
+    resource-prefix = "${var.resource-prefix}-eu-west-2"
     cluster-version = var.cluster-version
     fleet-project-id = var.fleet.project-id
     fleet-region = var.fleet.region
