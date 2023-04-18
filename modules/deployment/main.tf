@@ -12,23 +12,49 @@ module "aws" {
     admins = var.aws-admins
 }
 
-module "gcp" {
+module "gcp-europe-west2" {
     source = "./modules/gcp"
 
     project-id = var.project-id
-    resource-prefix = var.resource-prefix
+    resource-prefix = "${var.resource-prefix}-europe-west2"
     cluster-version = var.cluster-version
 
     placement = {
-        region = var.gcp.placement.region
-        AZs = var.gcp.placement.AZs
+        region = "europe-west2"
+        AZs = ["europe-west2-a", "europe-west2-b"]
     }
 
     instances = {
-        type = var.gcp.instances.type
+        type = "e2-standard-8"
         count = {
-            min = var.gcp.instances.count.min
-            max = var.gcp.instances.count.max
+            min = 0
+            max = 100
+        }
+    }
+
+    service-account = {
+        file = var.gcp.service-account.file
+        name = var.gcp.service-account.name
+    }
+}
+
+module "gcp-us-west2" {
+    source = "./modules/gcp"
+
+    project-id = var.project-id
+    resource-prefix = "${var.resource-prefix}-us-west2"
+    cluster-version = var.cluster-version
+
+    placement = {
+        region = "us-west2"
+        AZs = ["us-west2-a", "us-west2-b"]
+    }
+
+    instances = {
+        type = "e2-standard-8"
+        count = {
+            min = 0
+            max = 100
         }
     }
 

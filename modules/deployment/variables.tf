@@ -36,19 +36,6 @@ variable "aws-control-plane-instance-type" {
 
 variable "gcp" {
   type = object({
-    placement = object({
-      region = string
-      AZs = list(string)
-    })
-
-    instances = object({
-      count = object({
-        min = number
-        max = number
-      })
-      type = string
-    })
-
     service-account = object({
       file = string
       name = string

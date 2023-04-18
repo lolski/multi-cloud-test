@@ -1,7 +1,7 @@
 module "application" {
   source = "./modules/application"
   project-id = var.project-id
-  resource-prefix = "${var.resource-prefix}-application"
+  resource-prefix = "${var.resource-prefix}-app"
   cluster-version = var.cluster-version
   region = var.application-cluster-region
   az = var.application-cluster-az
@@ -16,7 +16,7 @@ module "deployment" {
   source = "./modules/deployment"
 
   project-id = var.project-id
-  resource-prefix = "${var.resource-prefix}-deployment"
+  resource-prefix = "${var.resource-prefix}-deploy"
   cluster-version = var.cluster-version
 
   fleet-region = var.fleet-region
@@ -28,19 +28,6 @@ module "deployment" {
   aws-admins = var.deployment-cluster-aws-admins
 
   gcp = {
-    placement = {
-      region = var.deployment.gcp.placement.region
-      AZs = var.deployment.gcp.placement.AZs
-    }
-
-    instances = {
-      type = var.deployment.gcp.instances.type
-      count = {
-        min = var.deployment.gcp.instances.count.min
-        max = var.deployment.gcp.instances.count.max
-      }
-    }
-
     service-account = {
       file = var.deployment.gcp.service-account.file
       name = var.deployment.gcp.service-account.name

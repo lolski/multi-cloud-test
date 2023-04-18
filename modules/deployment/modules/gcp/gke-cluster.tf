@@ -1,5 +1,5 @@
 resource "google_container_cluster" "primary" {
-  name     = "${var.resource-prefix}-cluster-gcp"
+  name     = "${var.resource-prefix}-gke-gcp"
   location = var.placement.region
   node_locations = var.placement.AZs
 

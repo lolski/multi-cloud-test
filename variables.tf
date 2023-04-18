@@ -72,21 +72,8 @@ variable "deployment-cluster-aws-node-pool-inst-type" {
 
 variable "deployment" {
   type = object({
-    aws = object({})
     gcp = object({
       project-id = string
-      placement = object({
-        region = string
-        AZs = list(string)
-      })
-
-      instances = object({
-        count = object({
-          min = number
-          max = number
-        })
-        type = string
-      })
 
       service-account = object({
         file = string

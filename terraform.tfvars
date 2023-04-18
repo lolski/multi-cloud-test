@@ -24,23 +24,8 @@ deployment-cluster-aws-node-pool-inst-type = "t3.medium"
 deployment-cluster-aws-admins = ["ganesh@vaticle.com"]
 
 deployment = {
-  aws = {
-
-  }
   gcp = {
     project-id = "vaticle-typedb-cloud-test" // var.gcp_project_id
-    placement = {
-      region = "europe-west2" // var.gcp_location
-      AZs = ["europe-west2-a"] // "${var.gcp_location}-a"
-    }
-
-    instances = {
-      type = "e2-standard-8"
-      count = {
-        min = 0
-        max = 100
-      }
-    }
 
     service-account = {
       file = "credentials/credentials.json"
