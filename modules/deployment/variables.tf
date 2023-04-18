@@ -34,34 +34,26 @@ variable "aws-control-plane-instance-type" {
   type = string
 }
 
-variable "gcp-az" {
-  type = string
-}
+variable "gcp" {
+  type = object({
+    placement = object({
+      region = string
+      AZs = list(string)
+    })
 
-variable "gcp-min-nodes" {
-  type = number
-}
+    instances = object({
+      count = object({
+        min = number
+        max = number
+      })
+      type = string
+    })
 
-variable "gcp-max-nodes" {
-  type = number
-}
+    service-account = object({
+      file = string
+      name = string
+    })
 
-variable "gcp-instance-type" {
-  type = string
-}
-
-variable "gcp-service-account-name" {
-  type = string
-}
-
-variable "gcp-region" {
-  type = string
-}
-
-variable "gcp-credentials" {
-  type = string
-}
-
-variable "gcp-ssh-private-key" {
-  type = string
+    ssh-private-key-file = string
+  })
 }

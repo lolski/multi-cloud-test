@@ -1,7 +1,7 @@
 resource "google_container_cluster" "primary" {
   name     = "${var.resource-prefix}-cluster-gcp"
-  location = var.region
-  node_locations = [var.az]
+  location = var.placement.region
+  node_locations = var.placement.AZs
 
   # Deletes initial node pool
   # Replaces with separately managed node pool

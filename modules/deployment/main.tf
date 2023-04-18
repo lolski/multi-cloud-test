@@ -14,14 +14,26 @@ module "aws" {
 
 module "gcp" {
     source = "./modules/gcp"
+
     project-id = var.project-id
     resource-prefix = var.resource-prefix
     cluster-version = var.cluster-version
-    region = var.gcp-region
-    az = var.gcp-az
-    instance-type = var.gcp-instance-type
-    min-nodes = var.gcp-min-nodes
-    max-nodes = var.gcp-max-nodes
-    credentials = var.gcp-credentials
-    service-account-name = var.gcp-service-account-name
+
+    placement = {
+        region = var.gcp.placement.region
+        AZs = var.gcp.placement.AZs
+    }
+
+    instances = {
+        type = var.gcp.instances.type
+        count = {
+            min = var.gcp.instances.count.min
+            max = var.gcp.instances.count.max
+        }
+    }
+
+    service-account = {
+        file = var.gcp.service-account.file
+        name = var.gcp.service-account.name
+    }
 }

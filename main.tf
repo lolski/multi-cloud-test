@@ -27,12 +27,24 @@ module "deployment" {
   aws-control-plane-instance-type = var.deployment-cluster-aws-control-plane-inst-type
   aws-admins = var.deployment-cluster-aws-admins
 
-  gcp-region = var.deployment-cluster-gcp-region
-  gcp-az = var.deployment-cluster-gcp-az
-  gcp-min-nodes = var.deployment-cluster-gcp-min-nodes
-  gcp-max-nodes = var.deployment-cluster-gcp-max-nodes
-  gcp-instance-type = var.deployment-cluster-gcp-instance-type
-  gcp-credentials = var.deployment-cluster-gcp-credentials
-  gcp-service-account-name = var.deployment-cluster-gcp-svc-acc-name
-  gcp-ssh-private-key = var.deployment-cluster-gcp-ssh-private-key
+  gcp = {
+    placement = {
+      region = var.deployment.gcp.placement.region
+      AZs = var.deployment.gcp.placement.AZs
+    }
+
+    instances = {
+      type = var.deployment.gcp.instances.type
+      count = {
+        min = var.deployment.gcp.instances.count.min
+        max = var.deployment.gcp.instances.count.max
+      }
+    }
+
+    service-account = {
+      file = var.deployment.gcp.service-account.file
+      name = var.deployment.gcp.service-account.name
+    }
+    ssh-private-key-file = var.deployment.gcp.ssh-private-key-file
+  }
 }

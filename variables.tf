@@ -70,38 +70,31 @@ variable "deployment-cluster-aws-node-pool-inst-type" {
   type = string
 }
 
-variable "deployment-cluster-gcp-project-id" {
-  type = string
-}
+variable "deployment" {
+  type = object({
+    aws = object({})
+    gcp = object({
+      project-id = string
+      placement = object({
+        region = string
+        AZs = list(string)
+      })
 
-variable "deployment-cluster-gcp-region" {
-  type = string
-}
+      instances = object({
+        count = object({
+          min = number
+          max = number
+        })
+        type = string
+      })
 
-variable "deployment-cluster-gcp-az" {
-  type = string
-}
+      service-account = object({
+        file = string
+        name = string
+      })
 
-variable "deployment-cluster-gcp-min-nodes" {
-  type = number
-}
-
-variable "deployment-cluster-gcp-max-nodes" {
-  type = number
-}
-
-variable "deployment-cluster-gcp-instance-type" {
-  type = string
-}
-
-variable "deployment-cluster-gcp-svc-acc-name" {
-  type = string
-}
-
-variable "deployment-cluster-gcp-credentials" {
-  type = string
-}
-
-variable "deployment-cluster-gcp-ssh-private-key" {
-  type = string
+      ssh-private-key-file = string
+      //
+    })
+  })
 }

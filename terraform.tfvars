@@ -23,13 +23,29 @@ deployment-cluster-aws-control-plane-inst-type = "t3.medium"
 deployment-cluster-aws-node-pool-inst-type = "t3.medium"
 deployment-cluster-aws-admins = ["ganesh@vaticle.com"]
 
-// Deployment cluster: GCP
-deployment-cluster-gcp-project-id = "vaticle-typedb-cloud-test" // var.gcp_project_id
-deployment-cluster-gcp-region = "europe-west2" // var.gcp_location
-deployment-cluster-gcp-az = "europe-west2-a" // "${var.gcp_location}-a"
-deployment-cluster-gcp-instance-type = "e2-standard-8"
-deployment-cluster-gcp-min-nodes = 0
-deployment-cluster-gcp-max-nodes = 100
-deployment-cluster-gcp-credentials = "credentials/credentials.json"
-deployment-cluster-gcp-ssh-private-key = "credentials/ssh-key.priv"
-deployment-cluster-gcp-svc-acc-name = "ganesh" // var.name_prefix
+deployment = {
+  aws = {
+
+  }
+  gcp = {
+    project-id = "vaticle-typedb-cloud-test" // var.gcp_project_id
+    placement = {
+      region = "europe-west2" // var.gcp_location
+      AZs = ["europe-west2-a"] // "${var.gcp_location}-a"
+    }
+
+    instances = {
+      type = "e2-standard-8"
+      count = {
+        min = 0
+        max = 100
+      }
+    }
+
+    service-account = {
+      file = "credentials/credentials.json"
+      name = "ganesh" // var.name_prefix
+    }
+    ssh-private-key-file = "credentials/ssh-key.priv"
+  }
+}
