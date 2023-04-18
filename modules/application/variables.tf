@@ -1,8 +1,8 @@
-variable "resource-prefix" {
+variable "project-id" {
   type = string
 }
 
-variable "project-id" {
+variable "resource-prefix" {
   type = string
 }
 
@@ -10,30 +10,33 @@ variable "cluster-version" {
   type = string
 }
 
-variable "region" {
-  type = string
+variable "fleet" {
+  type = object({
+    project-id = string
+    region = string
+  })
 }
 
-variable "az" {
-  type = string
+variable "placement" {
+  type = object({
+    region = string
+    AZs = list(string)
+  })
 }
 
-variable "min-nodes" {
-  type = number
+variable "instances" {
+  type = object({
+    count = object({
+      min = number
+      max = number
+    })
+    type = string
+  })
 }
 
-variable "max-nodes" {
-  type = number
-}
-
-variable "instance-type" {
-  type = string
-}
-
-variable "credentials" {
-  type = string
-}
-
-variable "service-account-name" {
-  type = string
+variable "service-account" {
+  type = object({
+    file = string
+    name = string
+  })
 }

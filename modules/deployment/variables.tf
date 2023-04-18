@@ -1,12 +1,4 @@
-variable "project-id" {
-  type = string
-}
-
 variable "resource-prefix" {
-  type = string
-}
-
-variable "fleet-region" {
   type = string
 }
 
@@ -14,28 +6,23 @@ variable "cluster-version" {
   type = string
 }
 
-variable "aws-admins" {
-  type = list(string)
+variable "fleet" {
+  type = object({
+    project-id = string
+    region = string
+  })
 }
 
-variable "aws-region" {
-  type = string
-}
-
-variable "aws-subnet-az" {
-  type = list(string)
-}
-
-variable "aws-node-pool-instance-type" {
-  type = string
-}
-
-variable "aws-control-plane-instance-type" {
-  type = string
+variable "aws" {
+  type = object({
+    resource-group = string
+    admins = list(string)
+  })
 }
 
 variable "gcp" {
   type = object({
+    project-id = string
     service-account = object({
       file = string
       name = string

@@ -1,21 +1,21 @@
 module "aws" {
     source = "./modules/aws"
-    // resource-group = var.project-id
+    // resource-group = var.aws.resource-group
     resource-prefix = var.resource-prefix
     cluster-version = var.cluster-version
-    fleet-project-id = var.project-id
-    fleet-region = var.fleet-region
-    region = var.aws-region
-    subnet-az = var.aws-subnet-az
-    control_plane_instance_type = var.aws-control-plane-instance-type
-    node_pool_instance_type = var.aws-node-pool-instance-type
-    admins = var.aws-admins
+    fleet-project-id = var.fleet.project-id
+    fleet-region = var.fleet.region
+    region = "eu-west-2"
+    subnet-az = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+    control_plane_instance_type = "t3.medium"
+    node_pool_instance_type = "t3.medium"
+    admins = var.aws.admins
 }
 
 module "gcp-europe-west2" {
     source = "./modules/gcp"
 
-    project-id = var.project-id
+    project-id = var.gcp.project-id
     resource-prefix = "${var.resource-prefix}-europe-west2"
     cluster-version = var.cluster-version
 
@@ -41,7 +41,7 @@ module "gcp-europe-west2" {
 module "gcp-us-west2" {
     source = "./modules/gcp"
 
-    project-id = var.project-id
+    project-id = var.gcp.project-id
     resource-prefix = "${var.resource-prefix}-us-west2"
     cluster-version = var.cluster-version
 

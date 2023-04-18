@@ -31,9 +31,9 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = var.deployment-cluster-aws-region
-}
 provider "google" {
   project = var.project-id
+}
+provider "aws" {
+  region = var.aws-region
 }

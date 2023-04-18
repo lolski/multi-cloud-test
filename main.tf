@@ -1,37 +1,56 @@
 module "application" {
   source = "./modules/application"
+
   project-id = var.project-id
   resource-prefix = "${var.resource-prefix}-app"
   cluster-version = var.cluster-version
-  region = var.application-cluster-region
-  az = var.application-cluster-az
-  instance-type = var.application-cluster-instance-type
-  min-nodes = var.application-cluster-min-nodes
-  max-nodes = var.application-cluster-max-nodes
-  credentials = var.application-cluster-credentials
-  service-account-name = var.application-cluster-svc-acc-name
+
+  fleet = {
+    project-id = var.project-id
+    region = var.application.placement.region
+  }
+
+  placement = {
+    region = var.application.placement.region
+    AZs = var.application.placement.AZs
+  }
+
+  instances = {
+    count = {
+      min = var.application.instances.count.min
+      max = var.application.instances.count.max
+    }
+    type = var.application.instances.type
+  }
+
+  service-account = {
+    file = var.gcp.service-account.file
+    name = var.gcp.service-account.name
+  }
 }
 
 module "deployment" {
   source = "./modules/deployment"
 
-  project-id = var.project-id
   resource-prefix = "${var.resource-prefix}-deploy"
   cluster-version = var.cluster-version
 
-  fleet-region = var.fleet-region
+  fleet = {
+    project-id = var.project-id
+    region = var.application.placement.region
+  }
 
-  aws-region = var.deployment-cluster-aws-region
-  aws-subnet-az = var.deployment-cluster-aws-subnet-az
-  aws-node-pool-instance-type = var.deployment-cluster-aws-node-pool-inst-type
-  aws-control-plane-instance-type = var.deployment-cluster-aws-control-plane-inst-type
-  aws-admins = var.deployment-cluster-aws-admins
+  aws = {
+    resource-group = var.project-id
+    admins = var.deployment.aws.admins
+  }
 
   gcp = {
+    project-id = var.project-id
     service-account = {
-      file = var.deployment.gcp.service-account.file
-      name = var.deployment.gcp.service-account.name
+      file = var.gcp.service-account.file
+      name = var.gcp.service-account.name
     }
-    ssh-private-key-file = var.deployment.gcp.ssh-private-key-file
+    ssh-private-key-file = var.gcp.ssh-private-key-file
   }
 }
