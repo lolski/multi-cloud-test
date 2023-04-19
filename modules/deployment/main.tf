@@ -9,7 +9,7 @@ module "aws-eu-west-2" {
     region = "eu-west-2"
     subnet-az = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
     control_plane_instance_type = "t3.medium"
-    node_pool_instance_type = "t3.medium"
+    node_pool_instance_type = "t3.2xlarge"
     admins = var.aws.admins
 }
 
