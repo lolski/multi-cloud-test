@@ -6,4 +6,5 @@ infrastructure/terraform.tfstate.*.backup
 infrastructure/.terraform/
 infrastructure/.terraform.tfstate.lock.info
 infrastructure/credentials/
+infrastructure/modules/application/credentials/
 orchestration/target

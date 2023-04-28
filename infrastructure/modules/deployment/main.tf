@@ -8,6 +8,16 @@ module "aws-eu-west-2" {
     fleet-region = var.fleet.region
     region = "eu-west-2"
     subnet-az = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+    public_subnet_cidr_block = [
+        "10.0.101.0/24",
+        "10.0.102.0/24",
+        "10.0.103.0/24"
+    ]
+    cp_private_subnet_cidr_blocks = [
+        "10.0.1.0/24",
+        "10.0.2.0/24",
+        "10.0.3.0/24",
+    ]
     control_plane_instance_type = "t3.medium"
     node_pool_instance_type = "t3.2xlarge"
     admins = var.aws.admins

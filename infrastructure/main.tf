@@ -1,32 +1,25 @@
 module "application" {
   source = "./modules/application"
-
-  project-id = var.project-id
-  resource-prefix = "${var.resource-prefix}-app"
-  cluster-version = var.cluster-version
-
-  fleet = {
-    project-id = var.project-id
-    region = var.application.placement.region
-  }
-
-  placement = {
-    region = var.application.placement.region
-    AZs = var.application.placement.AZs
-  }
-
-  instances = {
-    count = {
-      min = var.application.instances.count.min
-      max = var.application.instances.count.max
-    }
-    type = var.application.instances.type
-  }
-
-  service-account = {
-    file = var.gcp.service-account.file
-    name = var.gcp.service-account.name
-  }
+  auth0_client_id = var.application.providers.auth0.client-id
+  auth0_client_secret = var.application.providers.auth0.client-secret
+  auth0_domain = var.application.providers.auth0.domain
+  auto_repair = true
+  auto_upgrade = true
+  cloudflare_api_token = var.application.providers.cloudflare.api-token
+  cloudflare_zone_id = var.application.providers.cloudflare.zone-id
+  resource_prefix = var.resource-prefix
+  credentials_file = var.gcp.service-account.file
+  gcp_service_account_name = var.gcp.service-account.name
+  log_retention_days = var.application.log-retention-days
+  machine_type = var.application.instances.type
+  max_nodes = var.application.instances.count.max
+  min_nodes = var.application.instances.count.min
+  platform_deployment_repo = var.application.platform-deployment-repo
+  project = var.project-id
+  region = var.application.placement.region
+  ssh_private_key_file = var.gcp.ssh-private-key-file
+  typedb_cloud_server_app = var.application.typedb-cloud-server-app
+  zone = var.application.placement.AZs[0]
 }
 
 module "deployment" {

@@ -29,11 +29,17 @@ terraform {
       version = "4.62.0"
     }
   }
+
+  backend "gcs" {
+    bucket = "vaticle-typedb-cloud-test-tf-state"
+    prefix = "default"
+    credentials = "credentials/vaticle-typedb-cloud-test-73347dd8b880.json"
+  }
 }
 
 provider "google" {
   project = var.project-id
 }
 provider "aws" {
-  region = var.aws-region
+  region = var.aws.region
 }

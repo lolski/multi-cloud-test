@@ -1,7 +1,21 @@
 variable "project-id" {
   type = string
 }
-variable "aws-region" {}
+
+variable "resource-prefix" {
+  type = string
+}
+
+variable "cluster-version" {
+  type = string
+}
+
+variable "aws" {
+  type = object({
+    region = string
+  })
+}
+
 variable "gcp" {
   type = object({
     service-account = object({
@@ -11,14 +25,6 @@ variable "gcp" {
 
     ssh-private-key-file = string
   })
-}
-
-variable "resource-prefix" {
-  type = string
-}
-
-variable "cluster-version" {
-  type = string
 }
 
 variable "application" {
@@ -35,6 +41,25 @@ variable "application" {
       })
       type = string
     })
+
+    providers = object({
+      auth0 = object({
+        domain = string
+        client-id = string
+        client-secret = string
+      })
+
+      cloudflare = object({
+        api-token = string
+        zone-id = string
+      })
+    })
+
+    log-retention-days = number
+
+    platform-deployment-repo = string
+
+    typedb-cloud-server-app = string
   })
 }
 
